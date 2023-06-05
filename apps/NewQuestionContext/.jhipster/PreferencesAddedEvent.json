@@ -1,0 +1,25 @@
+{
+  "applications": ["NewQuestionContext"],
+  "changelogDate": "20230604121729",
+  "clientRootFolder": "NewQuestionContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "preferences_added_event",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "NewQuestionContext",
+  "name": "PreferencesAddedEvent",
+  "pagination": "no",
+  "readOnly": true,
+  "relationships": [
+    {
+      "otherEntityName": "userPreferences",
+      "ownerSide": true,
+      "relationshipName": "preferences",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

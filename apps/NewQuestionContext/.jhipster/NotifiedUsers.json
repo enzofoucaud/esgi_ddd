@@ -1,0 +1,31 @@
+{
+  "applications": ["NewQuestionContext"],
+  "changelogDate": "20230604121629",
+  "clientRootFolder": "NewQuestionContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "notified_users",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "NewQuestionContext",
+  "name": "NotifiedUsers",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "newQuestion",
+      "ownerSide": true,
+      "relationshipName": "question",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "userWithPreferencesId",
+      "otherEntityRelationshipName": "notifiedUsers",
+      "relationshipName": "user",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

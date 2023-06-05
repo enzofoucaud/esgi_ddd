@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity UserWithPreferencesId.
+    -->
+    <changeSet id="20230604122329-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="notified_users_id"
+                                 baseTableName="user_with_preferences_id"
+                                 constraintName="fk_user_with_preferences_id__notified_users_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="notified_users"/>
+    </changeSet>
+</databaseChangeLog>

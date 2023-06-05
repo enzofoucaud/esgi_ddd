@@ -1,0 +1,33 @@
+{
+  "applications": ["EvaluationContext"],
+  "changelogDate": "20230604121429",
+  "clientRootFolder": "EvaluationContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "earn_point",
+  "fields": [
+    {
+      "fieldName": "scoreEvolution",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "difficulty",
+      "fieldType": "Difficulty",
+      "fieldValues": "BEGINNER,INTERMEDIATE,EXPERT"
+    },
+    {
+      "fieldName": "userLevel",
+      "fieldType": "UserLevel",
+      "fieldValues": "NEW,REGULAR,EXPERT"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "EvaluationContext",
+  "name": "EarnPoint",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

@@ -1,0 +1,25 @@
+{
+  "applications": ["StatContext"],
+  "changelogDate": "20230604121329",
+  "clientRootFolder": "StatContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "ranking",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "StatContext",
+  "name": "Ranking",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "rankingEntry",
+      "otherEntityRelationshipName": "ranking",
+      "relationshipName": "entries",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

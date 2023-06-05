@@ -1,0 +1,25 @@
+{
+  "applications": ["NewQuestionContext"],
+  "changelogDate": "20230604122429",
+  "clientRootFolder": "NewQuestionContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "view_tags_for_question_command",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "NewQuestionContext",
+  "name": "ViewTagsForQuestionCommand",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "newQuestion",
+      "ownerSide": true,
+      "relationshipName": "questionToSend",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

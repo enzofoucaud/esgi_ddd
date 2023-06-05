@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="floatType" value="float4" dbms="h2"/>
+    <property name="uuidType" value="uuid" dbms="h2"/>
+    <property name="datetimeType" value="datetime" dbms="h2"/>
+    <property name="clobType" value="longvarchar" dbms="h2"/>
+    <property name="blobType" value="blob" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="floatType" value="float4" dbms="postgresql"/>
+    <property name="clobType" value="longvarchar" dbms="postgresql"/>
+    <property name="blobType" value="bytea" dbms="postgresql"/>
+    <property name="uuidType" value="uuid" dbms="postgresql"/>
+    <property name="datetimeType" value="datetime" dbms="postgresql"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121029_added_entity_AnsweringUser.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121129_added_entity_AwardedPointEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121229_added_entity_AwardPointForEvaluationCommand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121329_added_entity_CreateEvaluationCommand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121429_added_entity_EarnPoint.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121529_added_entity_EvaluatedAnswer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121629_added_entity_Evaluation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121729_added_entity_EvaluationCreatedEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121829_added_entity_EvaluationQuestion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121929_added_entity_EvaluationTag.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122029_added_entity_NewAnswerNotifiedEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122129_added_entity_QuestionEvaluationViewedEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122229_added_entity_TagEvaluationViewedEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122329_added_entity_UserAndLevel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122429_added_entity_UserEvaluationViewedEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122529_added_entity_ViewQuestionEvaluationCommand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122629_added_entity_ViewTagEvaluationCommand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122729_added_entity_ViewUserEvaluationCommand.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20230604121129_added_entity_constraints_AwardedPointEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121229_added_entity_constraints_AwardPointForEvaluationCommand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121329_added_entity_constraints_CreateEvaluationCommand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121629_added_entity_constraints_Evaluation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604121729_added_entity_constraints_EvaluationCreatedEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122029_added_entity_constraints_NewAnswerNotifiedEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122129_added_entity_constraints_QuestionEvaluationViewedEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122229_added_entity_constraints_TagEvaluationViewedEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122429_added_entity_constraints_UserEvaluationViewedEvent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122529_added_entity_constraints_ViewQuestionEvaluationCommand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122629_added_entity_constraints_ViewTagEvaluationCommand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230604122729_added_entity_constraints_ViewUserEvaluationCommand.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
+</databaseChangeLog>

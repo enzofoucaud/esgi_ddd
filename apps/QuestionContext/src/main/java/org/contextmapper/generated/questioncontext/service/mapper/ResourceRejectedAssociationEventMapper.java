@@ -1,0 +1,30 @@
+package org.contextmapper.generated.questioncontext.service.mapper;
+
+import org.contextmapper.generated.questioncontext.domain.QuestionResource;
+import org.contextmapper.generated.questioncontext.domain.QuestionResourceTagInfos;
+import org.contextmapper.generated.questioncontext.domain.ResourceRejectedAssociationEvent;
+import org.contextmapper.generated.questioncontext.service.dto.QuestionResourceDTO;
+import org.contextmapper.generated.questioncontext.service.dto.QuestionResourceTagInfosDTO;
+import org.contextmapper.generated.questioncontext.service.dto.ResourceRejectedAssociationEventDTO;
+import org.mapstruct.*;
+
+/**
+ * Mapper for the entity {@link ResourceRejectedAssociationEvent} and its DTO {@link ResourceRejectedAssociationEventDTO}.
+ */
+@Mapper(componentModel = "spring")
+public interface ResourceRejectedAssociationEventMapper
+    extends EntityMapper<ResourceRejectedAssociationEventDTO, ResourceRejectedAssociationEvent> {
+    @Mapping(target = "questionId", source = "questionId", qualifiedByName = "questionResourceId")
+    @Mapping(target = "tagInfos", source = "tagInfos", qualifiedByName = "questionResourceTagInfosId")
+    ResourceRejectedAssociationEventDTO toDto(ResourceRejectedAssociationEvent s);
+
+    @Named("questionResourceId")
+    @BeanMapping(ignoreByDefault = true)
+    @Mapping(target = "id", source = "id")
+    QuestionResourceDTO toDtoQuestionResourceId(QuestionResource questionResource);
+
+    @Named("questionResourceTagInfosId")
+    @BeanMapping(ignoreByDefault = true)
+    @Mapping(target = "id", source = "id")
+    QuestionResourceTagInfosDTO toDtoQuestionResourceTagInfosId(QuestionResourceTagInfos questionResourceTagInfos);
+}

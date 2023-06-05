@@ -1,0 +1,25 @@
+{
+  "applications": ["NewQuestionContext"],
+  "changelogDate": "20230604121429",
+  "clientRootFolder": "NewQuestionContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "new_question_tag_infos_viewed_event",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "NewQuestionContext",
+  "name": "NewQuestionTagInfosViewedEvent",
+  "pagination": "no",
+  "readOnly": true,
+  "relationships": [
+    {
+      "otherEntityName": "newQuestionTagInfos",
+      "otherEntityRelationshipName": "newQuestionTagInfosViewedEvent",
+      "relationshipName": "tagInfos",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

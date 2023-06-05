@@ -1,0 +1,23 @@
+{
+  "applications": ["EvaluationContext"],
+  "changelogDate": "20230604121529",
+  "clientRootFolder": "EvaluationContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "evaluated_answer",
+  "fields": [
+    {
+      "fieldName": "answerId",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "EvaluationContext",
+  "name": "EvaluatedAnswer",
+  "pagination": "no",
+  "readOnly": true,
+  "relationships": [],
+  "service": "serviceClass"
+}

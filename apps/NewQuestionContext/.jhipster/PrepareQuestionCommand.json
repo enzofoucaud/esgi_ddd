@@ -1,0 +1,23 @@
+{
+  "applications": ["NewQuestionContext"],
+  "changelogDate": "20230604121829",
+  "clientRootFolder": "NewQuestionContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "prepare_question_command",
+  "fields": [
+    {
+      "fieldName": "resourceId",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "NewQuestionContext",
+  "name": "PrepareQuestionCommand",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

@@ -1,0 +1,1007 @@
+
+
+
+/* Bounded Context UserManagementContext */
+enum Roles {
+	EVALUATOR STUDENT INQUISITOR NONE
+}
+enum UserStatus {
+	VALIDATED WAITING_VALIDATION REJECTED
+}
+
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity UserInfos {
+	firstname String
+	lastname String
+	password String
+	mail String
+	role Roles
+	status UserStatus
+}
+
+
+@dto(mapstruct)
+entity UserWaitingForValidation {
+}
+
+
+@dto(mapstruct)
+entity UserValidated {
+}
+
+
+@dto(mapstruct)
+entity UserRejected {
+}
+
+
+@dto(mapstruct)
+entity UserViewed {
+}
+
+
+@dto(mapstruct)
+entity Register {
+	firstname String
+	lastname String
+	mail String
+	password String
+	role Roles
+}
+
+
+@dto(mapstruct)
+entity ValidateUser {
+}
+
+
+@dto(mapstruct)
+entity RejectUser {
+}
+
+
+@dto(mapstruct)
+entity ViewUserByEmail {
+	mail String
+}
+
+
+
+@readOnly
+@dto(mapstruct)
+entity UserWaitingForValidationEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity UserValidatedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity UserRejectedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity UserViewedEvent {
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity RegisterCommand {
+	firstname String
+	lastname String
+	mail String
+	password String
+	role Roles
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity ValidateUserCommand {
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity RejectUserCommand {
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity ViewUserByEmailCommand {
+	mail String
+}
+
+
+
+microservice UserInfos with UserManagementContext
+application {
+	config {
+		baseName UserManagementContext
+		packageName org.contextmapper.generated.usermanagementcontext
+		applicationType microservice
+		serverPort 8091
+		enableSwaggerCodegen true
+		serviceDiscoveryType consul
+		prodDatabaseType postgresql
+	}
+	entities UserInfos, UserWaitingForValidationEvent, UserValidatedEvent, UserRejectedEvent, UserViewedEvent, RegisterCommand, ValidateUserCommand, RejectUserCommand, ViewUserByEmailCommand
+}
+
+
+/* Bounded Context QuestionContext */
+enum Types {
+	IMG_URL URL TEXT
+}
+enum States {
+	WAITING ASSOCIATED REJECTED
+}
+
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity QuestionResource {
+	questionContent String
+	questionState States
+	resourceType Types
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity QuestionResourceTagInfos {
+	tagId Long
+	name String
+}
+
+
+@dto(mapstruct)
+entity ResourceWaitingForAssociation {
+}
+
+
+@dto(mapstruct)
+entity ResourceAcceptedAssociation {
+}
+
+
+@dto(mapstruct)
+entity ResourceRejectedAssociation {
+}
+
+
+@dto(mapstruct)
+entity CreateResource {
+}
+
+
+@dto(mapstruct)
+entity ValidateResourceTagLinkage {
+}
+
+
+
+@readOnly
+@dto(mapstruct)
+entity ResourceWaitingForAssociationEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity ResourceAcceptedAssociationEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity ResourceRejectedAssociationEvent {
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity CreateResourceCommand {
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity ValidateResourceTagLinkageCommand {
+}
+
+
+
+microservice QuestionResource with QuestionContext
+application {
+	config {
+		baseName QuestionContext
+		packageName org.contextmapper.generated.questioncontext
+		applicationType microservice
+		serverPort 8092
+		enableSwaggerCodegen true
+		serviceDiscoveryType consul
+		prodDatabaseType postgresql
+	}
+	entities QuestionResource, QuestionResourceTagInfos, ResourceWaitingForAssociationEvent, ResourceAcceptedAssociationEvent, ResourceRejectedAssociationEvent, CreateResourceCommand, ValidateResourceTagLinkageCommand
+}
+
+
+/* Bounded Context SkillContext */
+enum TagStates {
+	CREATED DELETED
+}
+enum CategoryEvents {
+	CREATED DELETED
+}
+
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity Tag {
+	name String
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity Category {
+	name String
+	description String
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity TagInfos {
+	tagId Long
+	name String
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity CreatedById {
+	id Long
+}
+
+
+@dto(mapstruct)
+entity TagCreated {
+}
+
+
+@dto(mapstruct)
+entity CategoryCreated {
+}
+
+
+@dto(mapstruct)
+entity CreateTag {
+}
+
+
+@dto(mapstruct)
+entity CreateCategory {
+}
+
+
+
+@readOnly
+@dto(mapstruct)
+entity TagCreatedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity CategoryCreatedEvent {
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity CreateTagCommand {
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity CreateCategoryCommand {
+}
+
+
+
+microservice Tag, Category with SkillContext
+application {
+	config {
+		baseName SkillContext
+		packageName org.contextmapper.generated.skillcontext
+		applicationType microservice
+		serverPort 8093
+		enableSwaggerCodegen true
+		serviceDiscoveryType consul
+		prodDatabaseType postgresql
+	}
+	entities Tag, Category, TagInfos, CreatedById, TagCreatedEvent, CategoryCreatedEvent, CreateTagCommand, CreateCategoryCommand
+}
+
+
+/* Bounded Context NewQuestionContext */
+enum QuestionNotificationStatus {
+	PREPARING SENT VIEWED ANSWERED
+}
+
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity UserPreferences {
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity NewQuestion {
+	sentDate LocalDate
+	viewedDate LocalDate
+	answeredDate LocalDate
+	status QuestionNotificationStatus
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity NotifiedUsers {
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity UserWithPreferencesId {
+	mail String
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity UserPreferencesTagInfos {
+	tagId Long
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity NewQuestionTagInfos {
+	tagId Long
+	tagName String
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity ResourceId {
+	id Long
+}
+
+
+@dto(mapstruct)
+entity PreferencesAdded {
+}
+
+
+@dto(mapstruct)
+entity CreatedQuestion {
+}
+
+
+@dto(mapstruct)
+entity NotifiedQuestion {
+}
+
+
+@dto(mapstruct)
+entity NewQuestionTagInfosViewed {
+}
+
+
+@dto(mapstruct)
+entity AddPreferences {
+}
+
+
+@dto(mapstruct)
+entity PrepareQuestion {
+	resourceId Long
+}
+
+
+@dto(mapstruct)
+entity SendByPreferences {
+}
+
+
+@dto(mapstruct)
+entity ViewTagsForQuestion {
+}
+
+
+
+@readOnly
+@dto(mapstruct)
+entity PreferencesAddedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity CreatedQuestionEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity NotifiedQuestionEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity NewQuestionTagInfosViewedEvent {
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity AddPreferencesCommand {
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity PrepareQuestionCommand {
+	resourceId Long
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity SendByPreferencesCommand {
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity ViewTagsForQuestionCommand {
+}
+
+
+
+microservice UserPreferences, NewQuestion, NotifiedUsers with NewQuestionContext
+application {
+	config {
+		baseName NewQuestionContext
+		packageName org.contextmapper.generated.newquestioncontext
+		applicationType microservice
+		serverPort 8094
+		enableSwaggerCodegen true
+		serviceDiscoveryType consul
+		prodDatabaseType postgresql
+	}
+	entities UserPreferences, NewQuestion, NotifiedUsers, UserWithPreferencesId, UserPreferencesTagInfos, NewQuestionTagInfos, ResourceId, PreferencesAddedEvent, CreatedQuestionEvent, NotifiedQuestionEvent, NewQuestionTagInfosViewedEvent, AddPreferencesCommand, PrepareQuestionCommand, SendByPreferencesCommand, ViewTagsForQuestionCommand
+}
+
+
+/* Bounded Context AnswerContext */
+enum AnswerState {
+	DONE OPEN
+}
+
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity Answer {
+	answerState AnswerState
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity AvailableAnswer {
+	tagId Long
+	tagName String
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity NewQuestionId {
+	questionId Long
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity AnsweredTag {
+	tagId Long
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity UserEmail {
+	mail String
+}
+
+
+@dto(mapstruct)
+entity TagChoicesListed {
+}
+
+
+@dto(mapstruct)
+entity AnswerSubmitted {
+}
+
+
+@dto(mapstruct)
+entity AnswerCreated {
+}
+
+
+@dto(mapstruct)
+entity TagChoicesList {
+}
+
+
+@dto(mapstruct)
+entity AnswerSubmit {
+}
+
+
+
+@readOnly
+@dto(mapstruct)
+entity TagChoicesListedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity AnswerSubmittedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity AnswerCreatedEvent {
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity TagChoicesListCommand {
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity AnswerSubmitCommand {
+}
+
+
+
+microservice Answer with AnswerContext
+application {
+	config {
+		baseName AnswerContext
+		packageName org.contextmapper.generated.answercontext
+		applicationType microservice
+		serverPort 8095
+		enableSwaggerCodegen true
+		serviceDiscoveryType consul
+		prodDatabaseType postgresql
+	}
+	entities Answer, AvailableAnswer, NewQuestionId, AnsweredTag, UserEmail, TagChoicesListedEvent, AnswerSubmittedEvent, AnswerCreatedEvent, TagChoicesListCommand, AnswerSubmitCommand
+}
+
+
+/* Bounded Context EvaluationContext */
+enum Status {
+	VALID INVALID OPENED
+}
+enum Difficulty {
+	BEGINNER INTERMEDIATE EXPERT
+}
+enum UserLevel {
+	NEW REGULAR EXPERT
+}
+
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity Evaluation {
+	score Integer
+	evaluatorMail String
+	status Status
+	answeredQuestionDifficulty Difficulty
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity EarnPoint {
+	scoreEvolution Integer
+	difficulty Difficulty
+	userLevel UserLevel
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity UserAndLevel {
+	mail String
+	userLevel UserLevel
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity AnsweringUser {
+	mail String
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity EvaluationTag {
+	tagId Long
+	name String
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity EvaluationQuestion {
+	questionId Long
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity EvaluatedAnswer {
+	answerId Long
+}
+
+
+@dto(mapstruct)
+entity EvaluationCreated {
+}
+
+
+@dto(mapstruct)
+entity NewAnswerNotified {
+}
+
+
+@dto(mapstruct)
+entity UserEvaluationViewed {
+}
+
+
+@dto(mapstruct)
+entity TagEvaluationViewed {
+}
+
+
+@dto(mapstruct)
+entity QuestionEvaluationViewed {
+}
+
+
+@dto(mapstruct)
+entity AwardedPoint {
+}
+
+
+@dto(mapstruct)
+entity ViewTagEvaluation {
+}
+
+
+@dto(mapstruct)
+entity CreateEvaluation {
+	difficulty Difficulty
+}
+
+
+@dto(mapstruct)
+entity ViewUserEvaluation {
+}
+
+
+@dto(mapstruct)
+entity ViewQuestionEvaluation {
+}
+
+
+@dto(mapstruct)
+entity AwardPointForEvaluation {
+}
+
+
+
+@readOnly
+@dto(mapstruct)
+entity EvaluationCreatedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity NewAnswerNotifiedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity UserEvaluationViewedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity TagEvaluationViewedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity QuestionEvaluationViewedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity AwardedPointEvent {
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity ViewTagEvaluationCommand {
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity CreateEvaluationCommand {
+	difficulty Difficulty
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity ViewUserEvaluationCommand {
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity ViewQuestionEvaluationCommand {
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity AwardPointForEvaluationCommand {
+}
+
+
+
+microservice Evaluation, EarnPoint, UserAndLevel with EvaluationContext
+application {
+	config {
+		baseName EvaluationContext
+		packageName org.contextmapper.generated.evaluationcontext
+		applicationType microservice
+		serverPort 8096
+		enableSwaggerCodegen true
+		serviceDiscoveryType consul
+		prodDatabaseType postgresql
+	}
+	entities Evaluation, EarnPoint, UserAndLevel, AnsweringUser, EvaluationTag, EvaluationQuestion, EvaluatedAnswer, EvaluationCreatedEvent, NewAnswerNotifiedEvent, UserEvaluationViewedEvent, TagEvaluationViewedEvent, QuestionEvaluationViewedEvent, AwardedPointEvent, ViewTagEvaluationCommand, CreateEvaluationCommand, ViewUserEvaluationCommand, ViewQuestionEvaluationCommand, AwardPointForEvaluationCommand
+}
+
+
+/* Bounded Context StatContext */
+
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity RankingEntry {
+	userLevel String
+	score Integer
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity Ranking {
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity StatisticSubjectTag {
+	tagId Long
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity EvaluationStats {
+	total Integer
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity EvaluationStatEntry {
+	evaluationId Long
+	score Integer
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity StatisticSubjectUser {
+	mail String
+}
+
+
+@readOnly
+@dto(mapstruct)
+entity StatisticSubjectQuestion {
+	questionId Long
+}
+
+
+@dto(mapstruct)
+entity RankingViewed {
+}
+
+
+@dto(mapstruct)
+entity UserStatsViewed {
+}
+
+
+@dto(mapstruct)
+entity QuestionStatsViewed {
+}
+
+
+@dto(mapstruct)
+entity ViewRanking {
+}
+
+
+@dto(mapstruct)
+entity ViewStats {
+}
+
+
+
+@readOnly
+@dto(mapstruct)
+entity RankingViewedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity UserStatsViewedEvent {
+}
+
+@readOnly
+@dto(mapstruct)
+entity QuestionStatsViewedEvent {
+}
+
+
+@service(serviceClass)
+@dto(mapstruct)
+entity ViewRankingCommand {
+}
+
+@service(serviceClass)
+@dto(mapstruct)
+entity ViewStatsCommand {
+}
+
+
+
+microservice RankingEntry, Ranking with StatContext
+application {
+	config {
+		baseName StatContext
+		packageName org.contextmapper.generated.statcontext
+		applicationType microservice
+		serverPort 8097
+		enableSwaggerCodegen true
+		serviceDiscoveryType consul
+		prodDatabaseType postgresql
+	}
+	entities RankingEntry, Ranking, StatisticSubjectTag, EvaluationStats, EvaluationStatEntry, StatisticSubjectUser, StatisticSubjectQuestion, RankingViewedEvent, UserStatsViewedEvent, QuestionStatsViewedEvent, ViewRankingCommand, ViewStatsCommand
+}
+
+/* relationships */
+relationship OneToMany {
+			Category{tags} to Tag
+			UserPreferences{preferences} to UserPreferencesTagInfos
+			NewQuestion{tags} to NewQuestionTagInfos
+			NotifiedUsers{user} to UserWithPreferencesId
+			NewQuestionTagInfosViewedEvent{tagInfos} to NewQuestionTagInfos
+			TagChoicesListedEvent{tags} to AvailableAnswer
+			Ranking{entries} to RankingEntry
+			EvaluationStats{evaluation} to EvaluationStatEntry
+}
+relationship OneToOne {
+			UserWaitingForValidationEvent{userInfos} to UserInfos
+			UserValidatedEvent{userInfos} to UserInfos
+			UserRejectedEvent{userInfos} to UserInfos
+			UserViewedEvent{userInfos} to UserInfos
+			ValidateUserCommand{userInfos} to UserInfos
+			RejectUserCommand{userInfos} to UserInfos
+			QuestionResource{tagInfos} to QuestionResourceTagInfos
+			ResourceWaitingForAssociationEvent{questionId} to QuestionResource
+			ResourceWaitingForAssociationEvent{tagInfos} to QuestionResourceTagInfos
+			ResourceAcceptedAssociationEvent{questionId} to QuestionResource
+			ResourceAcceptedAssociationEvent{tagInfos} to QuestionResourceTagInfos
+			ResourceRejectedAssociationEvent{questionId} to QuestionResource
+			ResourceRejectedAssociationEvent{tagInfos} to QuestionResourceTagInfos
+			CreateResourceCommand{questionId} to QuestionResource
+			ValidateResourceTagLinkageCommand{questionId} to QuestionResource
+			Tag{createdById} to CreatedById
+			TagCreatedEvent{tagId} to Tag
+			CategoryCreatedEvent{categoryId} to Category
+			CreateTagCommand{tag} to Tag
+			CreateCategoryCommand{category} to Category
+			UserPreferences{user} to UserWithPreferencesId
+			NewQuestion{resourceId} to ResourceId
+			NotifiedUsers{question} to NewQuestion
+			PreferencesAddedEvent{preferences} to UserPreferences
+			CreatedQuestionEvent{questionAndTag} to NewQuestion
+			NotifiedQuestionEvent{questionResource} to NotifiedUsers
+			AddPreferencesCommand{preferences} to UserPreferencesTagInfos
+			SendByPreferencesCommand{questionToSend} to NewQuestion
+			ViewTagsForQuestionCommand{questionToSend} to NewQuestion
+			Answer{question} to NewQuestionId
+			Answer{answeredTag} to AnsweredTag
+			Answer{userEmail} to UserEmail
+			TagChoicesListedEvent{answerCreated} to Answer
+			AnswerSubmittedEvent{answer} to Answer
+			AnswerCreatedEvent{answer} to Answer
+			TagChoicesListCommand{questionSent} to NewQuestionId
+			AnswerSubmitCommand{answer} to Answer
+			Evaluation{tag} to EvaluationTag
+			Evaluation{question} to EvaluationQuestion
+			Evaluation{user} to AnsweringUser
+			EvaluationCreatedEvent{evaluation} to Evaluation
+			NewAnswerNotifiedEvent{answer} to EvaluatedAnswer
+			UserEvaluationViewedEvent{evaluation} to Evaluation
+			TagEvaluationViewedEvent{evaluation} to Evaluation
+			QuestionEvaluationViewedEvent{evaluation} to Evaluation
+			AwardedPointEvent{answer} to EvaluatedAnswer
+			ViewTagEvaluationCommand{tag} to EvaluationTag
+			CreateEvaluationCommand{answer} to EvaluatedAnswer
+			ViewUserEvaluationCommand{user} to AnsweringUser
+			ViewQuestionEvaluationCommand{question} to EvaluationQuestion
+			AwardPointForEvaluationCommand{evaluation} to Evaluation
+			RankingEntry{users} to StatisticSubjectUser
+			EvaluationStatEntry{user} to StatisticSubjectUser
+			EvaluationStatEntry{question} to StatisticSubjectQuestion
+			RankingViewedEvent{tag} to StatisticSubjectTag
+			RankingViewedEvent{newUserRanking} to Ranking
+			UserStatsViewedEvent{stat} to EvaluationStats
+			QuestionStatsViewedEvent{stat} to EvaluationStats
+			ViewRankingCommand{tag} to StatisticSubjectTag
+			ViewStatsCommand{user} to StatisticSubjectUser
+			ViewStatsCommand{question} to StatisticSubjectQuestion
+}
+
+
+deployment {
+	deploymentType docker-compose
+	appsFolders [UserManagementContext, QuestionContext, SkillContext, NewQuestionContext, AnswerContext, EvaluationContext, StatContext]
+	dockerRepositoryName "loicroux"
+	serviceDiscoveryType consul
+}
+

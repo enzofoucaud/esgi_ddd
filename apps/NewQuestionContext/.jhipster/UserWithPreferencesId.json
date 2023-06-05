@@ -1,0 +1,30 @@
+{
+  "applications": ["NewQuestionContext"],
+  "changelogDate": "20230604122329",
+  "clientRootFolder": "NewQuestionContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "user_with_preferences_id",
+  "fields": [
+    {
+      "fieldName": "mail",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "NewQuestionContext",
+  "name": "UserWithPreferencesId",
+  "pagination": "no",
+  "readOnly": true,
+  "relationships": [
+    {
+      "otherEntityName": "notifiedUsers",
+      "otherEntityRelationshipName": "user",
+      "relationshipName": "notifiedUsers",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

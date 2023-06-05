@@ -1,0 +1,40 @@
+{
+  "applications": ["QuestionContext"],
+  "changelogDate": "20230604121129",
+  "clientRootFolder": "QuestionContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "question_resource",
+  "fields": [
+    {
+      "fieldName": "questionContent",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "questionState",
+      "fieldType": "States",
+      "fieldValues": "WAITING,ASSOCIATED,REJECTED"
+    },
+    {
+      "fieldName": "resourceType",
+      "fieldType": "Types",
+      "fieldValues": "IMG_URL,URL,TEXT"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "QuestionContext",
+  "name": "QuestionResource",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "questionResourceTagInfos",
+      "ownerSide": true,
+      "relationshipName": "tagInfos",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

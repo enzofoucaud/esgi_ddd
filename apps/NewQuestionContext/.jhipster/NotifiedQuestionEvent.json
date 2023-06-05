@@ -1,0 +1,25 @@
+{
+  "applications": ["NewQuestionContext"],
+  "changelogDate": "20230604121529",
+  "clientRootFolder": "NewQuestionContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "notified_question_event",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "NewQuestionContext",
+  "name": "NotifiedQuestionEvent",
+  "pagination": "no",
+  "readOnly": true,
+  "relationships": [
+    {
+      "otherEntityName": "notifiedUsers",
+      "ownerSide": true,
+      "relationshipName": "questionResource",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

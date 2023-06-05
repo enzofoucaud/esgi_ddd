@@ -1,0 +1,43 @@
+{
+  "applications": ["AnswerContext"],
+  "changelogDate": "20230604121029",
+  "clientRootFolder": "AnswerContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "answer",
+  "fields": [
+    {
+      "fieldName": "answerState",
+      "fieldType": "AnswerState",
+      "fieldValues": "DONE,OPEN"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "AnswerContext",
+  "name": "Answer",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "newQuestionId",
+      "ownerSide": true,
+      "relationshipName": "question",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "answeredTag",
+      "ownerSide": true,
+      "relationshipName": "answeredTag",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "userEmail",
+      "ownerSide": true,
+      "relationshipName": "userEmail",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

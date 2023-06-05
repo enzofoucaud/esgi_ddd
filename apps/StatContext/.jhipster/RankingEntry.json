@@ -1,0 +1,40 @@
+{
+  "applications": ["StatContext"],
+  "changelogDate": "20230604121429",
+  "clientRootFolder": "StatContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "ranking_entry",
+  "fields": [
+    {
+      "fieldName": "userLevel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "score",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "StatContext",
+  "name": "RankingEntry",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "statisticSubjectUser",
+      "ownerSide": true,
+      "relationshipName": "users",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "ranking",
+      "otherEntityRelationshipName": "entries",
+      "relationshipName": "ranking",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

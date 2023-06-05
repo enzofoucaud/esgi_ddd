@@ -1,0 +1,31 @@
+{
+  "applications": ["EvaluationContext"],
+  "changelogDate": "20230604121329",
+  "clientRootFolder": "EvaluationContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "create_evaluation_command",
+  "fields": [
+    {
+      "fieldName": "difficulty",
+      "fieldType": "Difficulty",
+      "fieldValues": "BEGINNER,INTERMEDIATE,EXPERT"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "EvaluationContext",
+  "name": "CreateEvaluationCommand",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "evaluatedAnswer",
+      "ownerSide": true,
+      "relationshipName": "answer",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

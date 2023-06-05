@@ -1,0 +1,49 @@
+{
+  "applications": ["NewQuestionContext"],
+  "changelogDate": "20230604121229",
+  "clientRootFolder": "NewQuestionContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "new_question",
+  "fields": [
+    {
+      "fieldName": "sentDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "viewedDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "answeredDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "QuestionNotificationStatus",
+      "fieldValues": "PREPARING,SENT,VIEWED,ANSWERED"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "NewQuestionContext",
+  "name": "NewQuestion",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resourceId",
+      "ownerSide": true,
+      "relationshipName": "resourceId",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "newQuestionTagInfos",
+      "otherEntityRelationshipName": "newQuestion",
+      "relationshipName": "tags",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

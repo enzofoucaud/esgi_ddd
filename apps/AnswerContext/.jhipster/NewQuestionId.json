@@ -1,0 +1,23 @@
+{
+  "applications": ["AnswerContext"],
+  "changelogDate": "20230604121629",
+  "clientRootFolder": "AnswerContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "new_question_id",
+  "fields": [
+    {
+      "fieldName": "questionId",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "AnswerContext",
+  "name": "NewQuestionId",
+  "pagination": "no",
+  "readOnly": true,
+  "relationships": [],
+  "service": "serviceClass"
+}

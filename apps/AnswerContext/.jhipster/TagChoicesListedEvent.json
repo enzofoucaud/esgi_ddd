@@ -1,0 +1,31 @@
+{
+  "applications": ["AnswerContext"],
+  "changelogDate": "20230604121829",
+  "clientRootFolder": "AnswerContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tag_choices_listed_event",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "AnswerContext",
+  "name": "TagChoicesListedEvent",
+  "pagination": "no",
+  "readOnly": true,
+  "relationships": [
+    {
+      "otherEntityName": "answer",
+      "ownerSide": true,
+      "relationshipName": "answerCreated",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "availableAnswer",
+      "otherEntityRelationshipName": "tagChoicesListedEvent",
+      "relationshipName": "tags",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

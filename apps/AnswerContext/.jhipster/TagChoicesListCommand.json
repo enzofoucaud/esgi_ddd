@@ -1,0 +1,25 @@
+{
+  "applications": ["AnswerContext"],
+  "changelogDate": "20230604121729",
+  "clientRootFolder": "AnswerContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tag_choices_list_command",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "AnswerContext",
+  "name": "TagChoicesListCommand",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "newQuestionId",
+      "ownerSide": true,
+      "relationshipName": "questionSent",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

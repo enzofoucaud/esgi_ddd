@@ -1,0 +1,36 @@
+{
+  "applications": ["SkillContext"],
+  "changelogDate": "20230604121529",
+  "clientRootFolder": "SkillContext",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tag",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "SkillContext",
+  "name": "Tag",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "createdById",
+      "ownerSide": true,
+      "relationshipName": "createdById",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "category",
+      "otherEntityRelationshipName": "tags",
+      "relationshipName": "category",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}
